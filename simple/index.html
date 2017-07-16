@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Otakulib</title>
+    <link rel="stylesheet" href="css/bulma.min.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+</head>
+<body>
+    <header class="hero is-primary">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">Gestionnaire pour Otaku (mangas / animes / films)</h1>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item"><strong>Otakulib</strong></a>
+        </div>
+
+        <ul class="navbar-end">
+            <li class="navbar-item">
+                <a class="button is-primary" href="#add-form">Ajouter une série</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="main" class="container">
+        <div class="columns">
+            <section class="column">
+                <p class="notification is-info">
+                    Vous n'avez ajouté aucune série encore
+                </p>
+
+                <div class="card">
+                    <header class="card-header">
+                        <h2 class="card-header-title">
+                            <span class="tag is-light">FILM</span> TITLE
+                        </h2>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            <p>
+                                <span class="tag is-success">En cours</span>
+                                <span class="tag is-black">Fini</span>
+                            </p>
+
+                            <p>
+                                <strong>Épisodes vues</strong> : 1
+                                <br>
+                                <strong>Épisodes total</strong> : 10
+                            </p>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a class="card-footer-item">Editer</a>
+                        <a class="card-footer-item">Supprimer</a>
+                    </footer>
+                </div>
+            </section>
+
+            <form class="panel column is-one-third">
+                <h2 class="panel-heading">Ajouter une série</h2>
+
+                <div class="panel-block">
+                    <div class="field">
+                        <label class="label">Nom</label>
+                        <p class="control">
+                            <input class="input" type="text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="panel-block">
+                    <div class="field">
+                        <label class="label">Type</label>
+                        <p class="control select">
+                            <select>
+                                <option value="film">Film</option>
+                                <option value="anime">Anime</option>
+                                <option value="manga">Manga</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="panel-block">
+                    <div class="field">
+                        <label class="label">Total</label>
+                        <p class="help">(nombre de tomes, episodes, films)</p>
+                        <p class="control">
+                            <input class="input" type="number">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="panel-block">
+                    <div class="field">
+                        <label class="label">Vue</label>
+                        <p class="help">(nombre de tomes, episodes, films)</p>
+                        <p class="control">
+                            <input class="input" type="number">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="panel-block">
+                    <button class="button is-success is-block" type="submit">ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- #main, la partie observée par Vue -->
+
+    <footer class="footer">
+        <div class="container content has-text-centered">
+            <p>
+                Fait à <strong>Paris</strong> avec <strong class="has-text-danger">♥</strong>
+                <br>
+                Auteur <a href="http://otakod.es">@otakod.es</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/vue.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

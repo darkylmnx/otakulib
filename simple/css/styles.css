@@ -1,0 +1,45 @@
+body {
+    padding-top: 53px;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#main {
+    max-width: 960px;
+    padding: 40px 0;
+}
+
+#main .field {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.help {
+    margin-bottom: 0.25rem;
+}
+
+.select,
+.select select {
+    display: block;
+    width: 100%;
+}
+
+.is-block {
+    display: block;
+    width: 100%;
+}
+
+.card-header-title .tag {
+    margin-right: 1rem;
+}
+
+.footer {
+    padding: 2rem;
+}
