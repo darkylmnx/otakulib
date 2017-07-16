@@ -30,11 +30,11 @@
     <div id="main" class="container">
         <div class="columns">
             <section class="column">
-                <p class="notification is-info">
+                <p class="notification is-info" v-if="series.length == 0">
                     Vous n'avez ajouté aucune série encore
                 </p>
 
-                <div class="card">
+                <div class="card" v-for="serie in series">
                     <header class="card-header">
                         <h2 class="card-header-title">
                             <span class="tag is-light">FILM</span> TITLE
