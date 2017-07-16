@@ -61,14 +61,14 @@
                 </div>
             </section>
 
-            <form class="panel column is-one-third">
+            <form class="panel column is-one-third" v-on:submit.prevent="addSerie">
                 <h2 class="panel-heading">Ajouter une série</h2>
 
                 <div class="panel-block">
                     <div class="field">
                         <label class="label">Nom</label>
                         <p class="control">
-                            <input class="input" type="text">
+                            <input class="input" type="text" v-model="new_name">
                         </p>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                     <div class="field">
                         <label class="label">Type</label>
                         <p class="control select">
-                            <select>
+                            <select v-model="new_type">
                                 <option value="film">Film</option>
                                 <option value="anime">Anime</option>
                                 <option value="manga">Manga</option>
@@ -91,7 +91,7 @@
                         <label class="label">Total</label>
                         <p class="help">(nombre de tomes, episodes, films)</p>
                         <p class="control">
-                            <input class="input" type="number">
+                            <input class="input" type="number" v-model="new_total">
                         </p>
                     </div>
                 </div>
@@ -101,13 +101,15 @@
                         <label class="label">Vue</label>
                         <p class="help">(nombre de tomes, episodes, films)</p>
                         <p class="control">
-                            <input class="input" type="number">
+                            <input class="input" type="number" v-model="new_seen">
                         </p>
                     </div>
                 </div>
 
                 <div class="panel-block">
-                    <button class="button is-success is-block" type="submit">ajouter</button>
+                    <button class="button is-success is-block" type="submit">
+                        ajouter
+                    </button>
                 </div>
             </form>
         </div>
