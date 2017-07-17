@@ -57,9 +57,15 @@
                             <p>
                                 <strong>nombre de {{ label[serie.type] }} vus</strong> : 
                                 {{ serie.seen }}
-                                <br>
+                                <button class="button is-dark is-small" v-on:click="incSeen(serie)"> + </button>
+                                <button class="button is-dark is-small" v-on:click="decSeen(serie)"> - </button>
+                            </p>
+
+                            <p>
                                 <strong>nombre de {{ label[serie.type] }} total</strong> : 
                                 {{ serie.total }}
+                                <button class="button is-dark is-small" v-on:click="incTotal(serie)"> + </button>
+                                <button class="button is-dark is-small" v-on:click="decTotal(serie)"> - </button>
                             </p>
                         </div>
                     </div>
@@ -95,8 +101,8 @@
                         <label class="label">Type</label>
                         <p class="control select">
                             <select v-model="new_type">
-                                <option value="film">Film</option>
                                 <option value="anime">Anime</option>
+                                <option value="film">Film</option>
                                 <option value="manga">Manga</option>
                             </select>
                         </p>

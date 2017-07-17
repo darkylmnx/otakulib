@@ -81,6 +81,39 @@ var app = new Vue({
             this.new_type = serie.type;
             this.new_total = serie.total;
             this.new_seen = serie.seen;
+        },
+
+        incSeen: function(serie) {
+            if (serie.seen >= serie.total) {
+                serie.seen = serie.total;
+                return;
+            }
+
+            serie.seen++;
+            setLocalJson('series', this.series);
+        },
+        incTotal: function(serie) {
+            serie.total++;
+            setLocalJson('series', this.series);
+        },
+        decSeen: function(serie) {
+            if (serie.seen <= 0) {
+                serie.seen = 0;
+                return;
+            }
+
+            serie.seen--;
+            setLocalJson('series', this.series);
+        },
+        decTotal: function(serie) {
+            if (serie.total <= 0) {
+                serie.total = 0;
+                return;
+            }
+
+            serie.total--;
+            serie.seen = Math.min(serie.seen, serie.total);
+            setLocalJson('series', this.series);
         }
     }
 });
