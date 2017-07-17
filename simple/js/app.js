@@ -3,6 +3,11 @@ var app = new Vue({
 
     data: {
         series: [],
+        label: {
+            'anime': 'épisodes',
+            'film': 'films',
+            'manga': 'tomes'
+        },
         new_name: '',
         new_type: 'anime',
         new_total: '',

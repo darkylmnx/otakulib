@@ -37,20 +37,26 @@
                 <div class="card" v-for="serie in series">
                     <header class="card-header">
                         <h2 class="card-header-title">
-                            <span class="tag is-light">FILM</span> TITLE
+                            <span class="tag is-light">{{ serie.type }}</span> {{ serie.name }}
                         </h2>
                     </header>
                     <div class="card-content">
                         <div class="content">
                             <p>
-                                <span class="tag is-success">En cours</span>
-                                <span class="tag is-black">Fini</span>
+                                <span class="tag is-success" v-if="serie.seen < serie.total">
+                                    En cours
+                                </span>
+                                <span class="tag is-black" v-if="serie.seen >= serie.total">
+                                    Fini
+                                </span>
                             </p>
 
                             <p>
-                                <strong>Épisodes vues</strong> : 1
+                                <strong>nombre de {{ label[serie.type] }} vus</strong> : 
+                                {{ serie.seen }}
                                 <br>
-                                <strong>Épisodes total</strong> : 10
+                                <strong>nombre de {{ label[serie.type] }} total</strong> : 
+                                {{ serie.total }}
                             </p>
                         </div>
                     </div>
@@ -89,7 +95,7 @@
                 <div class="panel-block">
                     <div class="field">
                         <label class="label">Total</label>
-                        <p class="help">(nombre de tomes, episodes, films)</p>
+                        <p class="help">(nombre de tomes, épisodes, films)</p>
                         <p class="control">
                             <input class="input" type="number" v-model="new_total">
                         </p>
@@ -98,8 +104,8 @@
 
                 <div class="panel-block">
                     <div class="field">
-                        <label class="label">Vue</label>
-                        <p class="help">(nombre de tomes, episodes, films)</p>
+                        <label class="label">Vu</label>
+                        <p class="help">(nombre de tomes, épisodes, films)</p>
                         <p class="control">
                             <input class="input" type="number" v-model="new_seen">
                         </p>
