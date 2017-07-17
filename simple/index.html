@@ -22,7 +22,7 @@
 
         <ul class="navbar-end">
             <li class="navbar-item">
-                <a class="button is-primary" href="#add-form">Ajouter une série</a>
+                <a class="button is-primary" href="#form">Ajouter une série</a>
             </li>
         </ul>
     </nav>
@@ -34,7 +34,7 @@
                     Vous n'avez ajouté aucune série encore
                 </p>
 
-                <div class="card" v-for="serie in series">
+                <div class="card" v-for="(serie, index) in series">
                     <header class="card-header">
                         <h2 class="card-header-title">
                             <span class="tag is-light">{{ serie.type }}</span> {{ serie.name }}
@@ -64,13 +64,17 @@
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a class="card-footer-item">Editer</a>
-                        <a class="card-footer-item">Supprimer</a>
+                        <a class="card-footer-item" href="#form" v-on:click="editSerie(serie)">
+                            Editer
+                        </a>
+                        <a class="card-footer-item" v-on:click="deleteSerie(index)">
+                            Supprimer
+                        </a>
                     </footer>
                 </div>
             </section>
 
-            <form class="panel column is-one-third" v-on:submit.prevent="addSerie">
+            <form id="form" class="panel column is-one-third" v-on:submit.prevent="addSerie">
                 <h2 class="panel-heading">Ajouter une série</h2>
 
                 <div class="panel-block" v-show="error">
