@@ -43,7 +43,10 @@
                     <div class="card-content">
                         <div class="content">
                             <p>
-                                <span class="tag is-success" v-if="serie.seen < serie.total">
+                                <span class="tag is-warning" v-if="serie.seen == 0">
+                                    Pas commencé
+                                </span>
+                                <span class="tag is-success" v-if="serie.seen > 0 && serie.seen < serie.total">
                                     En cours
                                 </span>
                                 <span class="tag is-black" v-if="serie.seen >= serie.total">

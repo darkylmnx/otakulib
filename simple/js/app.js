@@ -46,8 +46,9 @@ var app = new Vue({
                 seen: this.new_seen
             };
 
-            this.series.push(serie);
+            this.series.unshift(serie);
             this.resetForm();
+            setLocalJson('series', this.series);
         },
 
         resetForm: function() {
@@ -71,4 +72,9 @@ function getLocalJson(key) {
     }
 
     return data;
+}
+
+function setLocalJson(key, value) {
+    value = JSON.stringify(value);
+    localStorage.setItem(key, value);
 }
