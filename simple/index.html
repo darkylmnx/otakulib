@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a class="card-footer-item" href="#form" v-on:click="editSerie(serie)">
+                        <a class="card-footer-item" v-on:click="editSerie(serie)">
                             Editer
                         </a>
                         <a class="card-footer-item" v-on:click="deleteSerie(index)">
@@ -81,7 +81,7 @@
             </section>
 
             <form id="form" class="panel column is-one-third" v-on:submit.prevent="addSerie">
-                <h2 class="panel-heading">Ajouter une série</h2>
+                <h2 class="panel-heading">Formulaire série</h2>
 
                 <div class="panel-block" v-show="error">
                     <p class="notification is-danger">{{ message }}</p>
@@ -135,7 +135,7 @@
 
                 <div class="panel-block">
                     <button class="button is-success is-block" type="submit">
-                        ajouter
+                        envoyer
                     </button>
                 </div>
             </form>

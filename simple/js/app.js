@@ -23,6 +23,9 @@ var app = new Vue({
 
     methods: {
         addSerie: function() {
+            this.new_seen = parseInt(this.new_seen);
+            this.new_total = parseInt(this.new_total);
+
             if (
                 this.new_name === '' ||
                 this.new_type === '' ||
@@ -34,7 +37,7 @@ var app = new Vue({
                 return;
             }
 
-            else if (parseInt(this.new_seen) > parseInt(this.new_total)) {
+            else if (this.new_seen > this.new_total) {
                 this.error = true;
                 this.message = 'Le nombre total doit doit être plus grand que le nombre vu';
                 return;
@@ -76,6 +79,7 @@ var app = new Vue({
         },
 
         editSerie: function(serie) {
+            window.scroll(0, 0);
             this.edited_serie = serie
             this.new_name = serie.name;
             this.new_type = serie.type;
