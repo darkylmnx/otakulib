@@ -72,6 +72,7 @@ var app = new Vue({
 
         deleteSerie: function(index) {
             this.series.splice(index, 1);
+            setLocalJson('series', this.series);
         },
 
         editSerie: function(serie) {
