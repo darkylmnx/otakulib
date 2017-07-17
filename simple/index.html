@@ -70,6 +70,10 @@
             <form class="panel column is-one-third" v-on:submit.prevent="addSerie">
                 <h2 class="panel-heading">Ajouter une série</h2>
 
+                <div class="panel-block" v-show="error">
+                    <p class="notification is-danger">{{ message }}</p>
+                </div>
+
                 <div class="panel-block">
                     <div class="field">
                         <label class="label">Nom</label>
@@ -110,6 +114,10 @@
                             <input class="input" type="number" v-model="new_seen">
                         </p>
                     </div>
+                </div>
+
+                <div class="panel-block" v-show="error">
+                    <p class="notification is-danger">{{ message }}</p>
                 </div>
 
                 <div class="panel-block">

@@ -8,6 +8,8 @@ var app = new Vue({
             'film': 'films',
             'manga': 'tomes'
         },
+        error: false,
+        message: '',
         new_name: '',
         new_type: 'anime',
         new_total: '',
@@ -20,6 +22,23 @@ var app = new Vue({
 
     methods: {
         addSerie: function() {
+            if (
+                this.new_name === '' ||
+                this.new_type === '' ||
+                this.new_total === '' ||
+                this.new_seen === ''
+            ) {
+                this.error = true;
+                this.message = 'Tous les champs doivent être remplis';
+                return;
+            }
+
+            else if (parseInt(this.new_seen) > parseInt(this.new_total)) {
+                this.error = true;
+                this.message = 'Le nombre total doit doit être plus grand que le nombre vu';
+                return;
+            } 
+
             var serie = {
                 name: this.new_name,
                 type: this.new_type,
@@ -32,6 +51,8 @@ var app = new Vue({
         },
 
         resetForm: function() {
+            this.error = false;
+            this.message = '';
             this.new_name = '';
             this.new_type = 'anime';
             this.new_total = '';
