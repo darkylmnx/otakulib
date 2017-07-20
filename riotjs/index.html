@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Otakulib</title>
+    <link rel="stylesheet" href="css/bulma.min.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+</head>
+<body>
+    <header class="hero is-primary">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">Gestionnaire pour Otaku (mangas / animes / films)</h1>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item"><strong>Otakulib</strong></a>
+        </div>
+
+        <ul class="navbar-end">
+            <li class="navbar-item">
+                <a class="button is-primary" href="#form">Ajouter une série</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="main" class="container">
+        <app></app>
+    </div>
+    <!-- #main -->
+
+    <footer class="footer">
+        <div class="container content has-text-centered">
+            <p>
+                Fait à <strong>Paris</strong> avec <strong class="has-text-danger">♥</strong>
+                <br>
+                Auteur <a href="http://otakod.es">@otakod.es</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/tags/form.tag" type="riot/tag"></script>
+    <script src="js/tags/list.tag" type="riot/tag"></script>
+    <script src="js/tags/app.tag" type="riot/tag"></script>
+    <script src="js/riot+compiler.min.js"></script>
+    <script>
+    var SeriesEventBus = riot.observable(); 
+
+    riot.mount('app');
+
+    function getLocalJson(key) {
+        var data = localStorage.getItem(key);
+
+        if (data) {
+            data = JSON.parse(data);
+        } else {
+            data = [];
+        }
+
+        return data;
+    }
+
+    function setLocalJson(key, value) {
+        value = JSON.stringify(value);
+        localStorage.setItem(key, value);
+    }
+    </script>
+</body>
+</html>
