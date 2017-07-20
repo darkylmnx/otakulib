@@ -8,9 +8,11 @@ var app = new Vue({
             'film': 'films',
             'manga': 'tomes'
         },
+
         error: false,
         edited_serie: '',
         message: '',
+
         new_name: '',
         new_type: 'anime',
         new_total: '',
@@ -35,9 +37,7 @@ var app = new Vue({
                 this.error = true;
                 this.message = 'Tous les champs doivent être remplis';
                 return;
-            }
-
-            else if (this.new_seen > this.new_total) {
+            } else if (this.new_seen > this.new_total) {
                 this.error = true;
                 this.message = 'Le nombre total doit doit être plus grand que le nombre vu';
                 return;
@@ -60,7 +60,7 @@ var app = new Vue({
             }
 
             this.resetForm();
-            setLocalJson('series', this.series);
+            this.saveSeries();
         },
 
         resetForm: function() {
@@ -75,7 +75,7 @@ var app = new Vue({
 
         deleteSerie: function(index) {
             this.series.splice(index, 1);
-            setLocalJson('series', this.series);
+            this.saveSeries();
         },
 
         editSerie: function(serie) {
@@ -94,11 +94,11 @@ var app = new Vue({
             }
 
             serie.seen++;
-            setLocalJson('series', this.series);
+            this.saveSeries();
         },
         incTotal: function(serie) {
             serie.total++;
-            setLocalJson('series', this.series);
+            this.saveSeries();
         },
         decSeen: function(serie) {
             if (serie.seen <= 0) {
@@ -107,7 +107,7 @@ var app = new Vue({
             }
 
             serie.seen--;
-            setLocalJson('series', this.series);
+            this.saveSeries();
         },
         decTotal: function(serie) {
             if (serie.total <= 0) {
@@ -117,6 +117,9 @@ var app = new Vue({
 
             serie.total--;
             serie.seen = Math.min(serie.seen, serie.total);
+            this.saveSeries();
+        },
+        saveSeries: function() {
             setLocalJson('series', this.series);
         }
     }
