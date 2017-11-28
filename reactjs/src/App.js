@@ -38,13 +38,16 @@ class App extends Component {
     });
 
     this.saveSeries();
+
+    window.scroll(0, 0);
   }
 
   editSerie(serie) {
-    window.scroll(0, 0);
     this.setState({
       edited_serie: serie
     });
+
+    window.scroll(0, 0);
   }
 
   deleteSerie(i) {
